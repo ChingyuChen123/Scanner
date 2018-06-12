@@ -39,4 +39,14 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="177dp" />
 
+    <TextView
+        android:id="@+id/displayJson"
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"
+        android:layout_marginTop="68dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scan_button" />
+
 </android.support.constraint.ConstraintLayout>

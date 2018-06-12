@@ -13,7 +13,8 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button scanBtn;
-    private TextView formatTxt, contentTxt;
+    private TextView formatTxt, contentTxt, jsonTxt;
+    private Item item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         scanBtn = (Button)findViewById(R.id.scan_button);
         formatTxt = (TextView)findViewById(R.id.scan_format);
         contentTxt = (TextView)findViewById(R.id.scan_content);
+        jsonTxt = (TextView)findViewById(R.id.displayJson);
 
         scanBtn.setOnClickListener(this);
     }
@@ -45,6 +47,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             formatTxt.setText("FORMAT: " + scanFormat);
             contentTxt.setText("CONTENT: " + scanContent);
+
+            //APIRetreiver api= new APIRetreiver();
+            //api.retreiveData(scanContent, scanFormat);
+
+            //Item item = api.getProductName();
+            //jsonTxt.setText("Product: " + item.getProduct_name());
         }
         else{
             Toast toast = Toast.makeText(getApplicationContext(),
@@ -52,4 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toast.show();
         }
     }
+
+
 }
