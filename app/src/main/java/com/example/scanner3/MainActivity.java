@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        //start scanning
         if(v.getId()==R.id.scan_button){
             IntentIntegrator scanIntegrator = new IntentIntegrator(this);
             scanIntegrator.initiateScan();
@@ -41,18 +42,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
         if (scanningResult != null) {
-            //we have a result
+            //Scanning Result
             String scanContent = scanningResult.getContents();
             String scanFormat = scanningResult.getFormatName();
 
             formatTxt.setText("FORMAT: " + scanFormat);
             contentTxt.setText("CONTENT: " + scanContent);
 
-            //APIRetreiver api= new APIRetreiver();
-            //api.retreiveData(scanContent, scanFormat);
+            //Trying to get data from api
+            APIRetriever api= new APIRetriever();
+            api.retrieveData(scanContent, scanFormat);
 
-            //Item item = api.getProductName();
-            //jsonTxt.setText("Product: " + item.getProduct_name());
+            Item item = api.getProductName();
+            jsonTxt.setText("Product: " + item.getProduct_name());
         }
         else{
             Toast toast = Toast.makeText(getApplicationContext(),

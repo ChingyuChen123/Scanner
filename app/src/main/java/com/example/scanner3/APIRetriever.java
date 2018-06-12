@@ -8,15 +8,15 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class APIRetreiver {
+public class APIRetriever {
 
     Item item;
 
-    public APIRetreiver() {
+    public APIRetriever() {
 
     }
 
-    public void retreiveData(String content, String format) {
+    public void retrieveData(String content, String format) {
         try {
             // Create a stream to the URL
             // Here is where I found the JSON streams: https://api.barcodelookup.com/v2/products?barcode=9780140157376&formatted=y&key=tk1qu2huudl9znmbr894o1cr9gc1yy
